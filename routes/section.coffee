@@ -10,6 +10,7 @@ Section.count({},(err, c) ->
 
 exports.findAll = (req, res) ->
   Section.find (err, items) ->
+    console.log("Calling findAll")
     res.send items
 
 

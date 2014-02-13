@@ -1,3 +1,4 @@
+#/home/mart2967/mongodb/bin/mongod --dbpath ~/WebstormProjects/testProject2/db/ --smallfiles
 express = require 'express'
 routes = require './routes'
 section = require './routes/section'
