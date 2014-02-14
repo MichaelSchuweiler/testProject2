@@ -8,6 +8,13 @@ class AppRouter extends Backbone.Router
 
   index: ->
     sectionList = new window.SectionCollection()
+    gpaList = new window.gpaCollection()
+
+    gpaList.fetch success: ->
+      $('#content').html new window.gpaCollectionView(collection: gpaList).$el
+      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: gpaList).$el
+      return
+
     sectionList.fetch success: ->
       $('#content').html new window.SectionCollectionView(collection: sectionList).$el
       $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el

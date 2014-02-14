@@ -57,5 +57,10 @@ app.post '/section', section.create
 app.get '/sections', section.findAll
 app.put '/section/:id', section.edit
 
+app.get '/gpa/:id', section.getByIdGPA
+app.post '/gpa', section.create
+app.get '/gpas', section.findAllGPA
+app.put '/gpa/:id', section.edit
+
 http.createServer(app).listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')
