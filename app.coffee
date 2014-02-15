@@ -2,9 +2,11 @@
 express = require 'express'
 routes = require './routes'
 section = require './routes/section'
+gpa = require './routes/gpa'
 http = require 'http'
 path = require 'path'
 mongoose = require 'mongoose'
+gpaCalculator = require './routes/gpaCalculator'
 #models = require './schemas/schemas'
 app = express()
 
@@ -57,10 +59,15 @@ app.post '/section', section.create
 app.get '/sections', section.findAll
 app.put '/section/:id', section.edit
 
-app.get '/gpa/:id', section.getByIdGPA
-app.post '/gpa', section.create
-app.get '/gpas', section.findAllGPA
-app.put '/gpa/:id', section.edit
+#In theory these initialize and show the GPA data type held in the database. Right now it is a little messed up.
+app.get '/gpa/:id', gpa.getByIdGPA
+app.post '/gpa', gpa.create
+app.get '/gpas', gpa.findAllGPA
+app.put '/gpa/:id', gpa.edit
+
+#Hopefully this will make the gpaCalculator accesesible.
+app.get '/gpaCalculator', gpaCalculator.gpaResponse
+app.post '/gpaCalculator', gpaCalculator.gpaPostResponse
 
 http.createServer(app).listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')

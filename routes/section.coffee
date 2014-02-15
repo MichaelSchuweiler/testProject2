@@ -1,5 +1,4 @@
 Section = require('../schemas/schemas').Section
-GPA = require('../schemas/schemas').GPA
 
 
 # Populate the database if there are no records
@@ -15,10 +14,6 @@ exports.findAll = (req, res) ->
     console.log("Calling findAll")
     res.send items
 
-exports.findAllGPA = (req, res) ->
-  GPA.find (err, items) ->
-    console.log("Calling findAllGPA")
-    res.send items
 
 exports.create = (req, res) ->
   newSection = new Section req.body
@@ -29,11 +24,6 @@ exports.create = (req, res) ->
 exports.getById = (req, res) ->
   id = req.route.params['id']
   Section.findById id, (err, result) ->
-    res.send result
-
-exports.getByIdGPA = (req, res) ->
-  id = req.route.params['id']
-  GPA.findById id, (err, result) ->
     res.send result
 
 exports.edit = (req, res) ->
@@ -84,22 +74,10 @@ populateDB = ->
       }
 
   ]
-  GPAS = [
-    {
-      title: 'GPA Test'
-      Grade: 'F'
-      Credit: '-5'
-      finalGPA: '0.01'
-    }
-  ]
+
   createAndAdd section for section in sections
-  createAndAddGPA gpa for gpa in GPAS
+
 
 createAndAdd = (sec)->
   newSection = new Section(sec)
   newSection.save()
-
-createAndAddGPA = (gpa) ->
-  console.log("Adding GPA")
-  newGPA = new GPA(gpa)
-  newGPA.save()

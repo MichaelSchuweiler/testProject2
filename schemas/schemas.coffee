@@ -12,8 +12,8 @@ Section = new Schema(
 
 GPA = new Schema(
   title: String
-  Grade: String
-  Credit: String
+  Grade: Array
+  Credit: Array
   finalGPA: String
   htmlId: String
 )

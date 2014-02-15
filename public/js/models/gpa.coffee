@@ -6,7 +6,7 @@ class window.GPA extends Backbone.Model
 
   defaults:
     title: "GPA Entry"
-    Grade: 'A'
-    Credit: '0'
+    Grade: ['A']
+    Credit: ['0']
     finalGPA: 'You do not have a GPA'
     htmlId: "#"
