@@ -5,10 +5,14 @@
 </head>
 <body data-spy="scroll" data-target=".navbar">
 {{> navbar}}
+
     <div class="container">
 
         {{{ yield }}}
     </div>
+
+{{> dropdown}}
+
 {{> scripts}}
 </body>
 </html>

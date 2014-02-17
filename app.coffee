@@ -60,10 +60,13 @@ app.get '/sections', section.findAll
 app.put '/section/:id', section.edit
 
 #In theory these initialize and show the GPA data type held in the database. Right now it is a little messed up.
+app.get '/gpa', routes.index
 app.get '/gpa/:id', gpa.getByIdGPA
 app.post '/gpa', gpa.create
 app.get '/gpas', gpa.findAllGPA
 app.put '/gpa/:id', gpa.edit
+
+
 
 #Hopefully this will make the gpaCalculator accesesible.
 app.get '/gpaCalculator', gpaCalculator.gpaResponse

@@ -10,7 +10,7 @@
       return Section.__super__.constructor.apply(this, arguments);
     }
 
-    Section.prototype.urlRoot = '/section';
+    Section.prototype.urlRoot = '/sections';
 
     Section.prototype.idAttribute = '_id';
 

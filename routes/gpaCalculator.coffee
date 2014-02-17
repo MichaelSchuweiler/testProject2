@@ -156,10 +156,13 @@ exports.gpaPostResponse = (req, res) ->
   gradeArray = arrayMaker(req.body.Grades1,req.body.Grades2,req.body.Grades3,req.body.Grades4)
   creditArray = arrayMaker(req.body.Credits1,req.body.Credits2,req.body.Credits3,req.body.Credits4)
   finalGpa = calculateGPA(gradeArray,creditArray)
-  gradeArrayString = "" + gradeArray[0]
-  creditArrayString = "" + creditArray[0]
+
   console.log(gradeArrayString)
-  gpa = new GPA({title: 'Test', Grades: gradeArray, Credits: creditArray})
+  gpa = new GPA({
+    title: 'Gpa Form'
+    Grade: gradeArray
+    Credit: creditArray
+    finalGPA: finalGpa })
   gpa.save()
 
 
