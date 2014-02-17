@@ -1,5 +1,24 @@
 GPA = require('../schemas/schemas').GPA
 
+testString= '<!DOCTYPE html>
+<html>
+<head>
+    {{> head}}
+</head>
+<body data-spy="scroll" data-target=".navbar">
+{{> navbar}}
+
+    <div class="container">
+
+        {{{ yield }}}
+    </div>
+
+{{> dropdown}}
+
+{{> scripts}}
+</body>
+</html>'
+
 
 formString = '<form id="GC" method="post" action="/gpaCalculator">
     <label for="Grades1">Grade:</label>
