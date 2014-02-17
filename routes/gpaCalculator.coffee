@@ -1,5 +1,6 @@
 GPA = require('../schemas/schemas').GPA
 
+
 formString = '<form id="GC" method="post" action="/gpaCalculator">
     <label for="Grades1">Grade:</label>
     <select id="Grades1" name="Grades1">
@@ -157,7 +158,6 @@ exports.gpaPostResponse = (req, res) ->
   creditArray = arrayMaker(req.body.Credits1,req.body.Credits2,req.body.Credits3,req.body.Credits4)
   finalGpa = calculateGPA(gradeArray,creditArray)
 
-  console.log(gradeArrayString)
   gpa = new GPA({
     title: 'Gpa Form'
     Grade: gradeArray

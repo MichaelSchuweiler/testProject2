@@ -19,8 +19,13 @@ class AppRouter extends Backbone.Router
       $('#content').html new window.SectionCollectionView(collection: sectionList).$el
       $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el
       return
-
     return
+
+  dropDown: ->
+    this.listenTo(this.$('.dropdown'), 'add', this.$('#contentGPA').hide())
+    return
+
+
 
 
 app = new AppRouter()
