@@ -6,6 +6,8 @@ class window.gpaView extends Backbone.View
     'change': 'change'
     'click button.edit': 'editGpa'
     'click button.save': 'saveGpa'
+    'click button.CalcGPA': 'findGPA'
+
 
   # the @ essentialy means "this."
   initialize: ->
@@ -39,3 +41,6 @@ class window.gpaView extends Backbone.View
       error: ->
         console.log 'error'
     @render()
+
+  findGPA: ->
+    console.log("Something Usefulllll")

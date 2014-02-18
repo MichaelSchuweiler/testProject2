@@ -40,3 +40,8 @@ class window.SectionView extends Backbone.View
       error: ->
         console.log 'error'
     @render()
+
+  findGPA: ->
+    console.log("Something Usefulllll")
+    @render()
+
