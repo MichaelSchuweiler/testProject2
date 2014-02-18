@@ -41,12 +41,6 @@ exports.edit = (req, res) ->
 
 populateDB = ->
   GPAS = [
-    {
-      title: 'GPA Test'
-      Grade: ['f']
-      Credit: ['-5']
-      finalGPA: '0.01'
-    }
   ]
 
   createAndAddGPA gpa for gpa in GPAS
