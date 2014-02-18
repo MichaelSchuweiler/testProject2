@@ -25,6 +25,7 @@ class window.gpaView extends Backbone.View
     change[event.target.name] = event.target.value #uses name attribute from html
     @model.set(change)
 
+
   editGpa: ->
     # set the html of the view to the editing template
     @$el.html @editTemplate(@model.toJSON())

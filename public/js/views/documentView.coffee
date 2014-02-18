@@ -30,7 +30,7 @@ class window.documentView extends Backbone.View
         document.getElementById("Grades2").value
         document.getElementById("Grades3").value
         document.getElementById("Grades4").value
-      ]
+    ]
     creditArray = [
       document.getElementById("Credits1").value
       document.getElementById("Credits2").value
@@ -48,6 +48,12 @@ class window.documentView extends Backbone.View
       body: bodyString
     )
     gpa.save()
+    gpaList = new window.gpaCollection()
+    gpaList.fetch success: ->
+      $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
+      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: gpaList).$el
+      return
+
     return
 
     return
