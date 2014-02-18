@@ -19,10 +19,9 @@
     };
 
     Section.prototype.defaults = {
-      title: 'Title',
-      link: '#',
-      body: 'Hello world',
-      category: 'default',
+      title: 'Additional Class',
+      Grade: 'A',
+      Credit: '0',
       htmlId: '#'
     };
 

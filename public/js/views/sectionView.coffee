@@ -27,6 +27,7 @@ class window.SectionView extends Backbone.View
     @model.set(change)
 
   editSection: ->
+    console.log("hekko")
     # set the html of the view to the editing template
     @$el.html @editTemplate(@model.toJSON())
     this
@@ -39,9 +40,5 @@ class window.SectionView extends Backbone.View
         console.log 'saved'
       error: ->
         console.log 'error'
-    @render()
-
-  findGPA: ->
-    console.log("Something Usefulllll")
     @render()
 
