@@ -57,7 +57,7 @@ app.get '/', routes.index
 app.get '/section/:id', section.getById
 app.post '/section', section.create
 app.get '/sections', section.findAll
-app.put '/section/:id', section.edit
+app.put '/sections/:id', section.edit
 
 #In theory these initialize and show the GPA data type held in the database. Right now it is a little messed up.
 app.get '/gpa', routes.index

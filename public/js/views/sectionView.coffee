@@ -23,7 +23,10 @@ class window.SectionView extends Backbone.View
     # when the value of the text area changes, update the model on the client
     console.log 'changed'
     change = {}
+    console.log(event.target.name)
     change[event.target.name] = event.target.value #uses name attribute from html
+    console.log(change)
+    console.log(event.target.value)
     @model.set(change)
 
   editSection: ->
@@ -35,6 +38,7 @@ class window.SectionView extends Backbone.View
   saveSection: ->
     #save all changes made to the model back to the database
     console.log 'saving...'
+    console.log(@model.get('grade'))
     @model.save {},
       success: ->
         console.log 'saved'
