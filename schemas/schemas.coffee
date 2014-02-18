@@ -4,8 +4,8 @@ Schema = mongoose.Schema
 
 Section = new Schema(
   title: String
-  Grade: String
-  Credit: String
+  grade: String
+  credit: String
   htmlId: String
 )
 

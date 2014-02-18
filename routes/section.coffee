@@ -43,22 +43,22 @@ populateDB = ->
     {
       title: 'First Class'
       grade: "A"
-      credits: "0"
+      credit: "0"
     },
     {
       title: 'Second Class'
       grade: "A"
-      credits: "0"
+      credit: "0"
     },
     {
       title: 'Third Class'
       grade: "A"
-      credits: "0"
+      credit: "0"
     },
     {
       title: 'Fourth Class'
       grade: "A"
-      credits: "0"
+      credit: "0"
     }
 
   ]

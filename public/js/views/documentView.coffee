@@ -5,6 +5,7 @@ class window.documentView extends Backbone.View
   template: _.template $('#class-template').html() #_.template is a function that takes a JSON object and returns html
 
   events:
+    'change dropdown': 'dropdown'
     'click button.CalcGPA': 'findGPA'
 
   initialize: ->
@@ -13,9 +14,19 @@ class window.documentView extends Backbone.View
   render: ->
     @$el.html @template() #this.el is what we defined in tagName. use $el to get access to jQuery html() function
 
+    dropdown: ->
+    $(document).ready ->
+      $("#dropdown").change ->
+        if document.getElementById("dropdown").value is "GPA"
+          $("#content").hide()
+          $("#contentGPA").show()
+        else
+          $("#contentGPA").hide()
+          $("#content").show()
+        return
+
   findGPA: ->
     $(document).ready ->
-      $("#content").hide()
       $("#dropdown").change ->
         if document.getElementById("dropdown").value is "GPA"
           $("#content").hide()
