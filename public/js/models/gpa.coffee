@@ -10,3 +10,4 @@ class window.GPA extends Backbone.Model
     Credit: ['0']
     finalGPA: 'You do not have a GPA'
     htmlId: "#"
+    body: ''

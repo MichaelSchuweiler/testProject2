@@ -28,7 +28,7 @@
         <button class="btn btn-default text-right pull-right edit">Edit</button>
     </h2>
 
-    <p>Grade: <%= Grade %>  Credit: <%= Credit %> Final GPA: <%= finalGPA %></p>
+    <p><%= body %></p>
 
 </script>
 
@@ -37,7 +37,7 @@
         <button class="btn btn-success text-right pull-right save">Save</button>
     </h2>
 
-    <textarea name="body" class="form-control" rows="3">Grade: <%= Grade %>  Credit: <%= Credit %></textarea>
+    <textarea name="body" class="form-control" rows="3"><%= body %></textarea>
 </script>
 
 <script>
@@ -117,12 +117,14 @@
             var gradeArray = [document.getElementById('Grades1').value, document.getElementById('Grades2').value, document.getElementById('Grades3').value, document.getElementById('Grades4').value]
             var creditArray = [document.getElementById('Credits1').value,document.getElementById('Credits2').value,document.getElementById('Credits3').value,document.getElementById('Credits4').value]
             var finalGpa = calculateGPA(gradeArray,creditArray)
+            var bodyString = "Grades: " + gradeArray + " Credits: " + creditArray + ". Your GPA is " + finalGpa
             document.getElementById('paragraph').innerHTML = "Your GPA is " + finalGpa
             gpa = new GPA({
                 title: 'Gpa Form',
                 Grade: gradeArray,
                 Credit: creditArray,
-                finalGPA: finalGpa })
+                finalGPA: finalGpa,
+                body: bodyString})
             gpa.save()
         })
     })

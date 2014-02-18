@@ -15,6 +15,7 @@ GPA = new Schema(
   Grade: Array
   Credit: Array
   finalGPA: String
+  body: String
   htmlId: String
 )
 
