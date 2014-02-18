@@ -15,7 +15,6 @@ class AppRouter extends Backbone.Router
 
     gpaList.fetch success: ->
       $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
-      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: gpaList).$el
       return
 
     sectionList.fetch success: ->
