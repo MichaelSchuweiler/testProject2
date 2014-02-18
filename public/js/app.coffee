@@ -6,6 +6,9 @@ class AppRouter extends Backbone.Router
   routes:
     '': 'index'
 
+  events:
+    'submit': 'test'
+
   index: ->
     sectionList = new window.SectionCollection()
     gpaList = new window.gpaCollection()
@@ -22,7 +25,11 @@ class AppRouter extends Backbone.Router
     return
 
   dropDown: ->
-    this.listenTo(this.$('.dropdown'), 'add', this.$('#contentGPA').hide())
+    console.log('it Worked!')
+    this.listenTo(this.$('#dropdown'), 'add', this.$('#contentGPA').hide())
+    return
+  test: ->
+    $('#contentGPA').hide
     return
 
 

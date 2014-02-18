@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="/stylesheets/style.css"/>
 <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css"/>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,4 +38,92 @@
     </h2>
 
     <textarea name="body" class="form-control" rows="3">Grade: <%= Grade %>  Credit: <%= Credit %></textarea>
+</script>
+
+<script>
+    calculateNumGrade = function(grade) {
+        switch (grade) {
+            case "A":
+                return 4.0;
+            case "A-":
+                return 3.66;
+            case "B+":
+                return 3.33;
+            case "B":
+                return 3.0;
+            case "B-":
+                return 2.66;
+            case "C+":
+                return 2.33;
+            case "C":
+                return 2.0;
+            case "C-":
+                return 1.66;
+            case "D+":
+                return 1.33;
+            case "D":
+                return 1.0;
+            case "D-":
+                return 0.66;
+            default:
+                return 0;
+        }
+    };
+
+    arrayMaker = function() {
+        var inputs;
+        inputs = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+        return inputs;
+    };
+
+    sumArray = function(array) {
+        var number, sum, _i, _len;
+        sum = 0;
+        for (_i = 0, _len = array.length; _i < _len; _i++) {
+            number = array[_i];
+            sum += parseFloat(number);
+        }
+        return sum;
+    };
+
+    calculateGPA = function(gradeArray, creditArray) {
+        var gradeCredit, i, sum, _i, _ref;
+        sum = sumArray(creditArray);
+        gradeCredit = 0;
+        for (i = _i = 0, _ref = creditArray.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+            gradeCredit += creditArray[i] * calculateNumGrade(gradeArray[i]);
+        }
+        if (sum !== 0) {
+            return (gradeCredit / sum).toFixed(2);
+        } else {
+            return "not available, add some classes.";
+        }
+    };
+
+
+    $(document).ready(function(){
+        $('#content').hide()
+        $('#dropdown').change(function() {
+            if (document.getElementById("dropdown").value == 'GPA') {
+                $('#content').hide()
+                $('#contentGPA').show()
+            } else {
+                $('#contentGPA').hide()
+                $('#content').show()
+            }
+        })
+
+        $('#CalcGPA').click(function() {
+            var gradeArray = [document.getElementById('Grades1').value, document.getElementById('Grades2').value, document.getElementById('Grades3').value, document.getElementById('Grades4').value]
+            var creditArray = [document.getElementById('Credits1').value,document.getElementById('Credits2').value,document.getElementById('Credits3').value,document.getElementById('Credits4').value]
+            var finalGpa = calculateGPA(gradeArray,creditArray)
+            document.getElementById('paragraph').innerHTML = "Your GPA is " + finalGpa
+            gpa = new GPA({
+                title: 'Gpa Form',
+                Grade: gradeArray,
+                Credit: creditArray,
+                finalGPA: finalGpa })
+            gpa.save()
+        })
+    })
 </script>

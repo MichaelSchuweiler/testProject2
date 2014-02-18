@@ -67,7 +67,6 @@ app.get '/gpas', gpa.findAllGPA
 app.put '/gpa/:id', gpa.edit
 
 
-
 #Hopefully this will make the gpaCalculator accesesible.
 app.get '/gpaCalculator', gpaCalculator.gpaResponse
 app.post '/gpaCalculator', gpaCalculator.gpaPostResponse
