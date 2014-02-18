@@ -29,6 +29,8 @@ class window.gpaView extends Backbone.View
     this
 
   saveGpa: ->
+
+
     #save all changes made to the model back to the database
     console.log 'saving...'
     @model.save {},
