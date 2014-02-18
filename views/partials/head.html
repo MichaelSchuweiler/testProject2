@@ -117,11 +117,11 @@
 </script>
 
 <script id="section-template" type="text/html">
-    <h2 id="<%= htmlId %>" class="fixlink"><a href="<%= link %>"><%= title %> </a>
+    <h2 id="<%= htmlId %>" <%= title %> </a>
         <button class="btn btn-default text-right pull-right edit">Edit</button>
     </h2>
 
-    <p><%= body %></p>
+    <p> Grade: <%= Grade %> Credit: <%= Credit %> </p>
 
 </script>
 
@@ -129,8 +129,34 @@
     <h2 id="<%= htmlId %>"><a href="<%= link %>"><%= title %></a>
         <button class="btn btn-success text-right pull-right save">Save</button>
     </h2>
-
-    <textarea name="body" class="form-control" rows="3"><%= body %></textarea>
+    <div>
+    <form id="GC1" method="post" action="/gpaCalculator">
+        <label for="G1">Grade:</label>
+        <select id="G1" name="G1">
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="C+">C+</option>
+            <option value="C">C</option>
+            <option value="C-">C-</option>
+            <option value="D+">D+</option>
+            <option value="D">D</option>
+            <option value="D-">D-</option>
+            <option value="F">F</option>
+        </select>
+        <label for="C1">Credits:</label>
+        <select id="C1" name="C1">
+            <option value="0.0">0</option>
+            <option value="1.0">1</option>
+            <option value="2.0">2</option>
+            <option value="3.0">3</option>
+            <option value="4.0">4</option>
+            <option value="5.0">5</option>
+        </select><br />
+        </form>
+        </div>
 </script>
 
 <script id="gpa-template" type="text/html">
