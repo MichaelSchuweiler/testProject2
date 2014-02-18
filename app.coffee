@@ -54,8 +54,8 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 app.get '/', routes.index
-app.get '/section/:id', section.getById
-app.post '/section', section.create
+app.get '/sections/:id', section.getById
+app.post '/sections', section.create
 app.get '/sections', section.findAll
 app.put '/sections/:id', section.edit
 

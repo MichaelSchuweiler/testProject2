@@ -19,7 +19,7 @@
     };
 
     Section.prototype.defaults = {
-      title: 'Additional Class',
+      title: 'Class',
       grade: 'A',
       credit: '0',
       htmlId: '#'

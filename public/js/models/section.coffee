@@ -5,7 +5,7 @@
       console.log 'Initializing a Section'
 
     defaults:
-      title: 'Additional Class'
+      title: 'Class'
       grade: 'A'
       credit: '0'
       htmlId: '#'

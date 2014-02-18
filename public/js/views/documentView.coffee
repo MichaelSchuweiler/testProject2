@@ -7,6 +7,7 @@ class window.documentView extends Backbone.View
   events:
     'change dropdown': 'dropdown'
     'click button.CalcGPA': 'findGPA'
+    'click button.addClass': 'addClass'
 
   initialize: ->
     @render()
@@ -24,6 +25,17 @@ class window.documentView extends Backbone.View
           $("#contentGPA").hide()
           $("#content").show()
         return
+
+
+  addClass: ->
+    section = new Section({})
+    sectionList = new window.SectionCollection()
+
+    section.save()
+    sectionList.fetch success: ->
+      $('#content').html new window.SectionCollectionView(collection: sectionList).$el
+      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el
+      return
 
   findGPA: ->
     $(document).ready ->

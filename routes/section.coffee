@@ -41,22 +41,22 @@ exports.edit = (req, res) ->
 populateDB = ->
   sections = [
     {
-      title: 'First Class'
+      title: 'Class'
       grade: "A"
       credit: "0"
     },
     {
-      title: 'Second Class'
+      title: 'Class'
       grade: "A"
       credit: "0"
     },
     {
-      title: 'Third Class'
+      title: 'Class'
       grade: "A"
       credit: "0"
     },
     {
-      title: 'Fourth Class'
+      title: 'Class'
       grade: "A"
       credit: "0"
     }
