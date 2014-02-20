@@ -1,6 +1,5 @@
 GPA = require('../schemas/schemas').GPA
 
-
 # Populate the database if there are no records
 GPA.count({},(err, c) ->
   console.log err if err
@@ -20,7 +19,6 @@ exports.create = (req, res) ->
   console.log 'created section ' + newGPA.title
   newGPA.save()
   res.send()
-
 
 exports.getByIdGPA = (req, res) ->
   id = req.route.params['id']
@@ -42,10 +40,3 @@ exports.edit = (req, res) ->
 populateDB = ->
   GPAS = [
   ]
-
-  createAndAddGPA gpa for gpa in GPAS
-
-createAndAddGPA = (gpa) ->
-  console.log("Adding GPA")
-  newGPA = new GPA(gpa)
-  newGPA.save()

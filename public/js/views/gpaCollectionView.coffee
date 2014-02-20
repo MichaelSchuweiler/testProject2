@@ -1,6 +1,5 @@
 class window.gpaCollectionView extends Backbone.View
-  events:
-    'change': 'add'
+
   initialize: ->
     @render()
 
@@ -12,8 +11,5 @@ class window.gpaCollectionView extends Backbone.View
     ), this
     this
 
-  add: ->
-    console.log('Adding')
-    @render()
 
 # returning itself for chaining calls. syntax bears futher investigation

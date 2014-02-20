@@ -14,7 +14,6 @@ exports.findAll = (req, res) ->
     console.log("Calling findAll")
     res.send items
 
-
 exports.create = (req, res) ->
   newSection = new Section req.body
   console.log 'created section ' + newSection.title
@@ -29,7 +28,6 @@ exports.getById = (req, res) ->
 exports.edit = (req, res) ->
   section = req.body
   delete section._id
-  #console.log req
   id = req.params.id
   Section.update({ _id: id }, { $set: section }, (err, numAffected, raw) ->
     console.log err if err

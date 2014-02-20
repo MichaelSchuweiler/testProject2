@@ -6,7 +6,6 @@ gpa = require './routes/gpa'
 http = require 'http'
 path = require 'path'
 mongoose = require 'mongoose'
-gpaCalculator = require './routes/gpaCalculator'
 #models = require './schemas/schemas'
 app = express()
 
@@ -65,12 +64,6 @@ app.get '/gpa/:id', gpa.getByIdGPA
 app.post '/gpa', gpa.create
 app.get '/gpas', gpa.findAllGPA
 app.put '/gpa/:id', gpa.edit
-
-
-
-#Hopefully this will make the gpaCalculator accesesible.
-app.get '/gpaCalculator', gpaCalculator.gpaResponse
-app.post '/gpaCalculator', gpaCalculator.gpaPostResponse
 
 http.createServer(app).listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')

@@ -12,7 +12,6 @@ class AppRouter extends Backbone.Router
 
     $('#calculator').html new window.documentView().$el
 
-
     gpaList.fetch success: ->
       $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
       return
@@ -22,10 +21,6 @@ class AppRouter extends Backbone.Router
       $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el
       return
     return
-
-
-
-
 
 app = new AppRouter()
 Backbone.history.start pushState: true

@@ -5,19 +5,19 @@ class window.documentView extends Backbone.View
   template: _.template $('#class-template').html() #_.template is a function that takes a JSON object and returns html
 
   events:
-    'change dropdown': 'dropdown'
+    'change #dropdown': 'dropdown'
     'click button.CalcGPA': 'findGPA'
     'click button.addClass': 'addClass'
 
   initialize: ->
     @render()
 
+
   render: ->
     @$el.html @template() #this.el is what we defined in tagName. use $el to get access to jQuery html() function
 
+
   dropdown: ->
-    $(document).ready ->
-      $("#dropdown").change ->
         if document.getElementById("dropdown").value is "GPA"
           $("#content").hide()
           $("#contentGPA").show()
@@ -30,12 +30,12 @@ class window.documentView extends Backbone.View
   addClass: ->
     section = new Section({})
     sectionList = new window.SectionCollection()
-
     section.save()
     sectionList.fetch success: ->
       $('#content').html new window.SectionCollectionView(collection: sectionList).$el
       $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el
       return
+
 
   findGPA: ->
     sectionList = new window.SectionCollection()
@@ -44,12 +44,10 @@ class window.documentView extends Backbone.View
     index = 0
     sectionList.fetch success: ->
       _.each sectionList.models, ((item) ->
-        console.log(item.get('grade'))
         gradeArray[index] = (item.get('grade'))
         creditArray[index] = (item.get('credit'))
         index++
       )
-      console.log(gradeArray)
       finalGpa = calculateGPA(gradeArray, creditArray)
       bodyString = "Grades: " + gradeArray + " Credits: " + creditArray + ". Your GPA is " + finalGpa
       document.getElementById("paragraph").innerHTML = "Your GPA is " + finalGpa
