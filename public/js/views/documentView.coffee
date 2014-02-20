@@ -15,7 +15,7 @@ class window.documentView extends Backbone.View
   render: ->
     @$el.html @template() #this.el is what we defined in tagName. use $el to get access to jQuery html() function
 
-    dropdown: ->
+  dropdown: ->
     $(document).ready ->
       $("#dropdown").change ->
         if document.getElementById("dropdown").value is "GPA"
@@ -38,46 +38,34 @@ class window.documentView extends Backbone.View
       return
 
   findGPA: ->
-    $(document).ready ->
-      $("#dropdown").change ->
-        if document.getElementById("dropdown").value is "GPA"
-          $("#content").hide()
-          $("#contentGPA").show()
-        else
-          $("#contentGPA").hide()
-          $("#content").show()
-        return
-    $("#CalcGPA").click ->
-    gradeArray = [
-        document.getElementById("Grades1").value
-        document.getElementById("Grades2").value
-        document.getElementById("Grades3").value
-        document.getElementById("Grades4").value
-    ]
-    creditArray = [
-      document.getElementById("Credits1").value
-      document.getElementById("Credits2").value
-      document.getElementById("Credits3").value
-      document.getElementById("Credits4").value
-    ]
-    finalGpa = calculateGPA(gradeArray, creditArray)
-    bodyString = "Grades: " + gradeArray + " Credits: " + creditArray + ". Your GPA is " + finalGpa
-    document.getElementById("paragraph").innerHTML = "Your GPA is " + finalGpa
-    gpa = new GPA(
-      title: "Gpa Form"
-      Grade: gradeArray
-      Credit: creditArray
-      finalGPA: finalGpa
-      body: bodyString
-    )
-    gpa.save()
-    gpaList = new window.gpaCollection()
-    gpaList.fetch success: ->
-      $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
-      return
-
+    sectionList = new window.SectionCollection()
+    gradeArray = []
+    creditArray = []
+    index = 0
+    sectionList.fetch success: ->
+      _.each sectionList.models, ((item) ->
+        console.log(item.get('grade'))
+        gradeArray[index] = (item.get('grade'))
+        creditArray[index] = (item.get('credit'))
+        index++
+      )
+      console.log(gradeArray)
+      finalGpa = calculateGPA(gradeArray, creditArray)
+      bodyString = "Grades: " + gradeArray + " Credits: " + creditArray + ". Your GPA is " + finalGpa
+      document.getElementById("paragraph").innerHTML = "Your GPA is " + finalGpa
+      gpa = new GPA(
+        title: "Gpa Form"
+        Grade: gradeArray
+        Credit: creditArray
+        finalGPA: finalGpa
+        body: bodyString
+      )
+      gpa.save()
+      gpaList = new window.gpaCollection()
+      gpaList.fetch success: ->
+        $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
     return
-
+    return
     return
 
   calculateNumGrade = (grade) ->
