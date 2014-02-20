@@ -13,7 +13,7 @@
 
     <p id="paragraph">Your GPA is not available, add some classes.</p>
     <select id="dropdown" name="dropdown">
-        <option value="Sections" selected="selected">Sections</option>
+        <option value="Classes" selected="selected">Classes</option>
         <option value="GPA">GPA</option>
 
 
@@ -21,7 +21,7 @@
 
 </script>
 
-<script id="section-template" type="text/html">
+<script id="classes-template" type="text/html">
     <h2 id="<%= htmlId %>"> <%= title %>
         <button class="btn btn-default text-right pull-right edit">Edit</button>
     </h2>
@@ -30,7 +30,7 @@
 
 </script>
 
-<script id="section-edit-template" type="text/html">
+<script id="classes-edit-template" type="text/html">
     <h2 id="<%= htmlId %>"><%= title %>
         <button class="btn btn-success text-right pull-right save">Save</button>
     </h2>

@@ -2,7 +2,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 
 
-Section = new Schema(
+Classes = new Schema(
   title: String
   grade: String
   credit: String
@@ -18,9 +18,9 @@ GPA = new Schema(
   htmlId: String
 )
 
-Section = mongoose.model 'Section', Section
+Classes = mongoose.model 'Classes', Classes
 GPA = mongoose.model 'GPA', GPA
 
 module.exports =
-  Section : Section
+  Classes : Classes
   GPA : GPA

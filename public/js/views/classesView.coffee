@@ -1,14 +1,14 @@
 ###
 Created by mart2967 on 1/30/14.
 ###
-class window.SectionView extends Backbone.View
+class window.ClassesView extends Backbone.View
   tagName: 'div'
-  template: _.template $('#section-template').html() #_.template is a function that takes a JSON object and returns html
-  editTemplate: _.template $('#section-edit-template').html()
+  template: _.template $('#classes-template').html() #_.template is a function that takes a JSON object and returns html
+  editTemplate: _.template $('#classes-edit-template').html()
   events:
     'change': 'change'
-    'click button.edit': 'editSection'
-    'click button.save': 'saveSection'
+    'click button.edit': 'editClasses'
+    'click button.save': 'saveClasses'
 
   # the @ essentialy means "this."
   initialize: ->
@@ -26,12 +26,12 @@ class window.SectionView extends Backbone.View
     change[event.target.name] = event.target.value #uses name attribute from html
     @model.set(change)
 
-  editSection: ->
+  editClasses: ->
     # set the html of the view to the editing template
     @$el.html @editTemplate(@model.toJSON())
     this
 
-  saveSection: ->
+  saveClasses: ->
     #save all changes made to the model back to the database
     console.log 'saving...'
     console.log(@model.get('grade'))

@@ -3,32 +3,32 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  window.Section = (function(_super) {
-    __extends(Section, _super);
+  window.Classes = (function(_super) {
+    __extends(Classes, _super);
 
-    function Section() {
-      return Section.__super__.constructor.apply(this, arguments);
+    function Classes() {
+      return Classes.__super__.constructor.apply(this, arguments);
     }
 
-    Section.prototype.urlRoot = '/sections';
+    Classes.prototype.urlRoot = '/classes';
 
-    Section.prototype.idAttribute = '_id';
+    Classes.prototype.idAttribute = '_id';
 
-    Section.prototype.initialize = function() {
-      return console.log('Initializing a Section');
+    Classes.prototype.initialize = function() {
+      return console.log('Initializing a Class');
     };
 
-    Section.prototype.defaults = {
+    Classes.prototype.defaults = {
       title: 'Class',
       grade: 'A',
       credit: '0',
       htmlId: '#'
     };
 
-    return Section;
+    return Classes;
 
   })(Backbone.Model);
 
 }).call(this);
 
-//# sourceMappingURL=section.map
+//# sourceMappingURL=classes.map

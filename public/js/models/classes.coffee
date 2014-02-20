@@ -1,8 +1,8 @@
-  class window.Section extends Backbone.Model
-    urlRoot: '/sections'
+  class window.Classes extends Backbone.Model
+    urlRoot: '/classes'
     idAttribute: '_id' #conforming to mongodb id syntax
     initialize: ->
-      console.log 'Initializing a Section'
+      console.log 'Initializing a Class'
 
     defaults:
       title: 'Class'

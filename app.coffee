@@ -1,7 +1,7 @@
 #/home/mart2967/mongodb/bin/mongod --dbpath ~/WebstormProjects/testProject2/db/ --smallfiles
 express = require 'express'
 routes = require './routes'
-section = require './routes/section'
+classes = require './routes/classes'
 gpa = require './routes/gpa'
 http = require 'http'
 path = require 'path'
@@ -53,10 +53,10 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 app.get '/', routes.index
-app.get '/sections/:id', section.getById
-app.post '/sections', section.create
-app.get '/sections', section.findAll
-app.put '/sections/:id', section.edit
+app.get '/classes/:id', classes.getById
+app.post '/classes', classes.create
+app.get '/classes', classes.findAll
+app.put '/classes/:id', classes.edit
 
 #In theory these initialize and show the GPA data type held in the database. Right now it is a little messed up.
 app.get '/gpa', routes.index

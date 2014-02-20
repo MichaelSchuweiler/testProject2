@@ -1,8 +1,8 @@
-Section = require('../schemas/schemas').Section
+Classes = require('../schemas/schemas').Classes
 
 
 # Populate the database if there are no records
-Section.count({},(err, c) ->
+Classes.count({},(err, c) ->
   console.log err if err
   if c == 0
     console.log 'Populating database'
@@ -10,34 +10,36 @@ Section.count({},(err, c) ->
 )
 
 exports.findAll = (req, res) ->
-  Section.find (err, items) ->
+  Classes.find (err, items) ->
     console.log("Calling findAll")
     res.send items
 
+
 exports.create = (req, res) ->
-  newSection = new Section req.body
-  console.log 'created section ' + newSection.title
-  newSection.save()
+  newClasses = new Classes req.body
+  console.log 'created  ' + newClasses.title
+  newClasses.save()
   res.send()
 
 exports.getById = (req, res) ->
   id = req.route.params['id']
-  Section.findById id, (err, result) ->
+  Classes.findById id, (err, result) ->
     res.send result
 
 exports.edit = (req, res) ->
-  section = req.body
-  delete section._id
+  classes = req.body
+  delete classes._id
+  #console.log req
   id = req.params.id
-  Section.update({ _id: id }, { $set: section }, (err, numAffected, raw) ->
+  Classes.update({ _id: id }, { $set: classes }, (err, numAffected, raw) ->
     console.log err if err
     console.log 'The number of updated documents was %d', numAffected
     #console.log 'The raw response from Mongo was ', raw
-    res.send(section)
+    res.send(classes)
   )
 
 populateDB = ->
-  sections = [
+  classesArray = [
     {
       title: 'Class'
       grade: "A"
@@ -61,9 +63,9 @@ populateDB = ->
 
   ]
 
-  createAndAdd section for section in sections
+  createAndAdd classes for classes in classesArray
 
 
 createAndAdd = (sec)->
-  newSection = new Section(sec)
-  newSection.save()
+  newClasses = new Classes(sec)
+  newClasses.save()

@@ -16,7 +16,7 @@ exports.findAllGPA = (req, res) ->
 
 exports.create = (req, res) ->
   newGPA = new GPA req.body
-  console.log 'created section ' + newGPA.title
+  console.log 'created class ' + newGPA.title
   newGPA.save()
   res.send()
 

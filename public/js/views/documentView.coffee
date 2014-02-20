@@ -28,22 +28,22 @@ class window.documentView extends Backbone.View
 
 
   addClass: ->
-    section = new Section({})
-    sectionList = new window.SectionCollection()
-    section.save()
-    sectionList.fetch success: ->
-      $('#content').html new window.SectionCollectionView(collection: sectionList).$el
-      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: sectionList).$el
+    classes = new Classes({})
+    classesList = new window.ClassesCollection()
+    classes.save()
+    classesList.fetch success: ->
+      $('#content').html new window.ClassesCollectionView(collection: classesList).$el
+      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: classesList).$el
       return
 
 
   findGPA: ->
-    sectionList = new window.SectionCollection()
+    classesList = new window.ClassesCollection()
     gradeArray = []
     creditArray = []
     index = 0
-    sectionList.fetch success: ->
-      _.each sectionList.models, ((item) ->
+    classesList.fetch success: ->
+      _.each classesList.models, ((item) ->
         gradeArray[index] = (item.get('grade'))
         creditArray[index] = (item.get('credit'))
         index++
