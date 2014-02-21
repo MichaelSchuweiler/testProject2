@@ -8,4 +8,4 @@
       title: 'Class'
       grade: 'A'
       credit: '0'
-      htmlId: '#'
+      htmlId: ''
