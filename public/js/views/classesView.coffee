@@ -34,7 +34,6 @@ class window.ClassesView extends Backbone.View
   saveClasses: ->
     #save all changes made to the model back to the database
     console.log 'saving...'
-    console.log(@model.get('grade'))
     @model.save {},
       success: ->
         console.log 'saved'
