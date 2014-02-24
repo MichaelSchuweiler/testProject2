@@ -19,10 +19,10 @@
     };
 
     Classes.prototype.defaults = {
-      title: 'Class',
-      grade: 'A',
+      htmlId: '#',
       credit: '0',
-      htmlId: ''
+      grade: 'A',
+      title: 'Class'
     };
 
     return Classes;

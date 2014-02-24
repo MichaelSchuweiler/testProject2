@@ -33,8 +33,8 @@ class window.documentView extends Backbone.View
     classes.save()
     classesList.fetch success: ->
       $('#content').html new window.ClassesCollectionView(collection: classesList).$el
-      $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: classesList).$el
       return
+
 
 
   findGPA: ->
@@ -62,6 +62,7 @@ class window.documentView extends Backbone.View
       gpaList = new window.gpaCollection()
       gpaList.fetch success: ->
         $('#contentGPA').html new window.gpaCollectionView(collection: gpaList).$el
+        $('#bs-example-navbar-collapse-1').html new window.NavbarView(collection: gpaList).$el
     return
     return
     return

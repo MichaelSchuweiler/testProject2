@@ -3,10 +3,13 @@ Schema = mongoose.Schema
 
 
 Classes = new Schema(
-  title: String
-  grade: String
-  credit: String
   htmlId: String
+  credit: String
+  grade: String
+  title: String
+
+
+
 )
 
 GPA = new Schema(
@@ -14,8 +17,8 @@ GPA = new Schema(
   Grade: Array
   Credit: Array
   finalGPA: String
-  body: String
   htmlId: String
+  body: String
 )
 
 Classes = mongoose.model 'Classes', Classes

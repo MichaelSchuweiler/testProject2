@@ -41,24 +41,10 @@ exports.edit = (req, res) ->
 populateDB = ->
   classesArray = [
     {
-      title: 'Class'
-      grade: "A"
       credit: "0"
-    },
-    {
-      title: 'Class'
       grade: "A"
-      credit: "0"
-    },
-    {
       title: 'Class'
-      grade: "A"
-      credit: "0"
-    },
-    {
-      title: 'Class'
-      grade: "A"
-      credit: "0"
+      htmlId: 'firstClass'
     }
 
   ]
